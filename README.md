@@ -1,0 +1,2 @@
+# NXUsePhotoAlbum
+总结有关相册的使用，包括UIImagePickerController、AssetsLibrary和PhotoKit
