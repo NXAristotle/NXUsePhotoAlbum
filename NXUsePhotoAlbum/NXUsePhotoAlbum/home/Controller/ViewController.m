@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "NXHomePageModel.h"
 #import "NXSelectIconViewController.h"
+#import "NXUseAssetsLibViewController.h"
 
 
 #define screenWidth  [UIScreen mainScreen].bounds.size.width
@@ -33,6 +34,12 @@
         model.nextVC = @"NXSelectIconViewController";
         
         [_dataSource addObject:model];
+        
+        NXHomePageModel *model1 = [NXHomePageModel new];
+        model1.describ = @"使用AssetsLibrary选取照片";
+        model1.nextVC = @"NXUseAssetsLibViewController";
+        
+        [_dataSource addObject:model1];
         
     }
     return _dataSource;

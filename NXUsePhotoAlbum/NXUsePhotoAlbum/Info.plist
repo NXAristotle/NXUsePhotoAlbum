@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>NXUsePhotoAlbum</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -11,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>NXUsePhotoAlbum</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -20,6 +22,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>访问相机</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>访问麦克风</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>访问相册</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -34,12 +42,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    <key>NSCameraUsageDescription</key>
-    <string>访问相机</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>访问麦克风</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>访问相册</string>
 </dict>
 </plist>
