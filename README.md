@@ -1,2 +1,4 @@
 # NXUsePhotoAlbum
 总结有关相册的使用，包括UIImagePickerController、AssetsLibrary和PhotoKit
+## UIImagePickerController 
+UIImagePickerController 适用于单一图片选择的场景，比如上传头像。
