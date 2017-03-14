@@ -7,12 +7,53 @@
 //
 
 #import "NXUseAssetsLibCollectionViewCell.h"
+#import "NXUseAssetsLibModel.h"
+
+@interface  NXUseAssetsLibCollectionViewCell ()
+
+
+//@property (nonatomic, assign) BOOL isSelected;  /**< 是否被选中 */
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *selectBtn;  /**< 是否选中 */
+
+@end
+
+//@dynamic selected;
 
 @implementation NXUseAssetsLibCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+//    self.isSelected = NO;
+}
+
+- (void)setModel:(NXUseAssetsLibModel *)model {
+    _model = model;
+    
+    if (_model.checked) {
+        [self.selectBtn setBackgroundImage:[UIImage imageNamed:@"Checkmark"] forState:UIControlStateNormal];
+    }else
+    {
+        [self.selectBtn setBackgroundImage:[UIImage imageNamed:@"CheckmarkUnselected"] forState:UIControlStateNormal];
+    }
+    ALAsset *asset = _model.asset;
+    
+    ALAssetRepresentation *rep = [asset defaultRepresentation];
+    CGImageRef iref = [rep fullScreenImage];
+   
+    UIImage *image = [UIImage imageWithCGImage:iref];
+    self.imageView.image = image;
+    
+}
+
+- (IBAction)selectPhoto:(UIButton *)sender {
+    
+    if ([self.delegate respondsToSelector:@selector(NXUseAssetsLibCollectionViewCell:didClickCheckboxButton:)]) {
+        [self.delegate NXUseAssetsLibCollectionViewCell:self didClickCheckboxButton:1];
+    }
+    
 }
 
 @end

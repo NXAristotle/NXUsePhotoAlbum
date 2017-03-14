@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class NXUseAssetsLibModel,NXUseAssetsLibCollectionViewCell;
+
+@protocol NXUseAssetsLibCollectionViewCellDelegate <NSObject>
+
+@optional
+
+- (void)NXUseAssetsLibCollectionViewCell:(NXUseAssetsLibCollectionViewCell *)cell didClickCheckboxButton:(BOOL )selected;
+
+@end
+
 @interface NXUseAssetsLibCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) NXUseAssetsLibModel *model;  /**< 数据模型 */
+@property (nonatomic, weak) id<NXUseAssetsLibCollectionViewCellDelegate> delegate;
 
 @end

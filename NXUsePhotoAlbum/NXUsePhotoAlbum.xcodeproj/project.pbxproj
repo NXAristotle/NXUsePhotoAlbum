@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D200707C1E725024000C50EA /* NXUseAssetsLibCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D200707B1E725024000C50EA /* NXUseAssetsLibCollectionViewController.m */; };
+		D255A5D71E7793B700CE80C2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D255A5D61E7793B700CE80C2 /* Default-568h@2x.png */; };
 		D26F6DC31E6D61CF00300E1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D26F6DC21E6D61CF00300E1C /* main.m */; };
 		D26F6DC61E6D61CF00300E1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D26F6DC51E6D61CF00300E1C /* AppDelegate.m */; };
 		D26F6DCE1E6D61CF00300E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26F6DCD1E6D61CF00300E1C /* Assets.xcassets */; };
@@ -20,6 +22,9 @@
 		D26F6E1A1E6D6BF300300E1C /* NXSelectIconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26F6E181E6D6BF300300E1C /* NXSelectIconViewController.xib */; };
 		D26F6E1E1E6E4AC200300E1C /* NXUseAssetsLibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26F6E1C1E6E4AC200300E1C /* NXUseAssetsLibViewController.m */; };
 		D26F6E1F1E6E4AC200300E1C /* NXUseAssetsLibViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26F6E1D1E6E4AC200300E1C /* NXUseAssetsLibViewController.xib */; };
+		D2CBBEBE1E7151880029E3CD /* NXUseAssetsLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CBBEBD1E7151880029E3CD /* NXUseAssetsLibModel.m */; };
+		D2CBBEC21E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CBBEC01E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.m */; };
+		D2CBBEC31E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CBBEC11E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D200707A1E725024000C50EA /* NXUseAssetsLibCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXUseAssetsLibCollectionViewController.h; sourceTree = "<group>"; };
+		D200707B1E725024000C50EA /* NXUseAssetsLibCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXUseAssetsLibCollectionViewController.m; sourceTree = "<group>"; };
+		D255A5D61E7793B700CE80C2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D26F6DBE1E6D61CF00300E1C /* NXUsePhotoAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NXUsePhotoAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26F6DC21E6D61CF00300E1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D26F6DC41E6D61CF00300E1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,6 +72,11 @@
 		D26F6E1B1E6E4AC200300E1C /* NXUseAssetsLibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXUseAssetsLibViewController.h; sourceTree = "<group>"; };
 		D26F6E1C1E6E4AC200300E1C /* NXUseAssetsLibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXUseAssetsLibViewController.m; sourceTree = "<group>"; };
 		D26F6E1D1E6E4AC200300E1C /* NXUseAssetsLibViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NXUseAssetsLibViewController.xib; sourceTree = "<group>"; };
+		D2CBBEBC1E7151880029E3CD /* NXUseAssetsLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXUseAssetsLibModel.h; sourceTree = "<group>"; };
+		D2CBBEBD1E7151880029E3CD /* NXUseAssetsLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXUseAssetsLibModel.m; sourceTree = "<group>"; };
+		D2CBBEBF1E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXUseAssetsLibCollectionViewCell.h; sourceTree = "<group>"; };
+		D2CBBEC01E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXUseAssetsLibCollectionViewCell.m; sourceTree = "<group>"; };
+		D2CBBEC11E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NXUseAssetsLibCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +107,7 @@
 		D26F6DB51E6D61CF00300E1C = {
 			isa = PBXGroup;
 			children = (
+				D255A5D61E7793B700CE80C2 /* Default-568h@2x.png */,
 				D26F6DC01E6D61CF00300E1C /* NXUsePhotoAlbum */,
 				D26F6DDA1E6D61CF00300E1C /* NXUsePhotoAlbumTests */,
 				D26F6DE51E6D61CF00300E1C /* NXUsePhotoAlbumUITests */,
@@ -214,6 +228,8 @@
 				D26F6E1B1E6E4AC200300E1C /* NXUseAssetsLibViewController.h */,
 				D26F6E1C1E6E4AC200300E1C /* NXUseAssetsLibViewController.m */,
 				D26F6E1D1E6E4AC200300E1C /* NXUseAssetsLibViewController.xib */,
+				D200707A1E725024000C50EA /* NXUseAssetsLibCollectionViewController.h */,
+				D200707B1E725024000C50EA /* NXUseAssetsLibCollectionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,6 +237,8 @@
 		D26F6E0C1E6D6BD100300E1C /* model */ = {
 			isa = PBXGroup;
 			children = (
+				D2CBBEBC1E7151880029E3CD /* NXUseAssetsLibModel.h */,
+				D2CBBEBD1E7151880029E3CD /* NXUseAssetsLibModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -228,6 +246,9 @@
 		D26F6E0D1E6D6BD100300E1C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D2CBBEBF1E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.h */,
+				D2CBBEC01E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.m */,
+				D2CBBEC11E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,6 +430,8 @@
 				D26F6E1A1E6D6BF300300E1C /* NXSelectIconViewController.xib in Resources */,
 				D26F6DD11E6D61CF00300E1C /* LaunchScreen.storyboard in Resources */,
 				D26F6DCE1E6D61CF00300E1C /* Assets.xcassets in Resources */,
+				D255A5D71E7793B700CE80C2 /* Default-568h@2x.png in Resources */,
+				D2CBBEC31E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +459,10 @@
 				D26F6E191E6D6BF300300E1C /* NXSelectIconViewController.m in Sources */,
 				D26F6E051E6D63DA00300E1C /* ViewController.m in Sources */,
 				D26F6E081E6D641800300E1C /* NXHomePageModel.m in Sources */,
+				D2CBBEBE1E7151880029E3CD /* NXUseAssetsLibModel.m in Sources */,
 				D26F6DC61E6D61CF00300E1C /* AppDelegate.m in Sources */,
+				D200707C1E725024000C50EA /* NXUseAssetsLibCollectionViewController.m in Sources */,
+				D2CBBEC21E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.m in Sources */,
 				D26F6DC31E6D61CF00300E1C /* main.m in Sources */,
 				D26F6E1E1E6E4AC200300E1C /* NXUseAssetsLibViewController.m in Sources */,
 			);
@@ -579,7 +605,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D25ER75697;
 				INFOPLIST_FILE = NXUsePhotoAlbum/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linyibin.NXUsePhotoAlbum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -592,7 +618,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = D25ER75697;
 				INFOPLIST_FILE = NXUsePhotoAlbum/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linyibin.NXUsePhotoAlbum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -664,6 +690,7 @@
 				D26F6DED1E6D61CF00300E1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D26F6DEE1E6D61CF00300E1C /* Build configuration list for PBXNativeTarget "NXUsePhotoAlbumTests" */ = {
 			isa = XCConfigurationList;
@@ -672,6 +699,7 @@
 				D26F6DF01E6D61CF00300E1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D26F6DF11E6D61CF00300E1C /* Build configuration list for PBXNativeTarget "NXUsePhotoAlbumUITests" */ = {
 			isa = XCConfigurationList;
@@ -680,6 +708,7 @@
 				D26F6DF31E6D61CF00300E1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

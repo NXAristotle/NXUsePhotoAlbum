@@ -8,11 +8,18 @@
 
 #import "NXUseAssetsLibViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "NXUseAssetsLibCollectionViewController.h"
+#import "NXUseAssetsLibModel.h"
+
 
 @interface NXUseAssetsLibViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *showSelected;
 @property (nonatomic, strong) ALAssetsLibrary *assetLibrary;
 @property (nonatomic, strong) NSMutableArray *groupArray;
+
+
+
+
 
 @end
 
@@ -49,6 +56,16 @@
     NSDictionary *mainInfoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *appName = [mainInfoDictionary objectForKey:@"CFBundleDisplayName"];
     
+    
+    /*
+     ALAuthorizationStatusNotDetermined NS_ENUM_DEPRECATED_IOS(6_0, 9_0) = 0, // User has not yet made a choice with regards to this application
+     ALAuthorizationStatusRestricted NS_ENUM_DEPRECATED_IOS(6_0, 9_0),        // This application is not authorized to access photo data.
+     // The user cannot change this application’s status, possibly due to active restrictions
+     //  such as parental controls being in place.
+     ALAuthorizationStatusDenied NS_ENUM_DEPRECATED_IOS(6_0, 9_0),            // User has explicitly denied this application access to photos data.
+     ALAuthorizationStatusAuthorized NS_ENUM_DEPRECATED_IOS(6_0, 9_0)
+     */
+    
     switch (authorizationStatus) {
         case ALAuthorizationStatusNotDetermined:  //  用户还未做出选择
             
@@ -75,23 +92,20 @@
     }
     
     NSLog(@"authorizationStatus :%zd",authorizationStatus);
-    /*
-     ALAuthorizationStatusNotDetermined NS_ENUM_DEPRECATED_IOS(6_0, 9_0) = 0, // User has not yet made a choice with regards to this application
-     ALAuthorizationStatusRestricted NS_ENUM_DEPRECATED_IOS(6_0, 9_0),        // This application is not authorized to access photo data.
-     // The user cannot change this application’s status, possibly due to active restrictions
-     //  such as parental controls being in place.
-     ALAuthorizationStatusDenied NS_ENUM_DEPRECATED_IOS(6_0, 9_0),            // User has explicitly denied this application access to photos data.
-     ALAuthorizationStatusAuthorized NS_ENUM_DEPRECATED_IOS(6_0, 9_0)
-     */
+ 
+   
     
     ALAssetsLibrary *assetLibrary = [[ALAssetsLibrary alloc] init];
     self.assetLibrary = assetLibrary;
    
-    [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupLibrary usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         NSInteger groupCount = [group numberOfAssets];
         NSLog(@"group number:%zd",groupCount);
+        
         if (group) {
             [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+//            [group setAssetsFilter:[ALAssetsFilter allAssets]];
+
             if (group.numberOfAssets > 0) {
                 // 把相册储存到数组中，方便后面展示相册时使用
                 [self.groupArray addObject:group];
@@ -113,26 +127,34 @@
     }];
     
     NSLog(@"-- albumArray:%@",self.groupArray);
+     
+    
+
 }
 
 
 //  遍历相册
 - (void)enumerateAssets {
+    
     NSMutableArray * assets = [NSMutableArray new];
     for (ALAssetsGroup * group in self.groupArray) {
         
-        /*
+        
          // 遍历所有的相片
          [group enumerateAssetsWithOptions:NSEnumerationReverse usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
          if (result) { // 遍历未结束
+             
          [assets addObject:result];
          } else { // result 为nil，遍历结束
+             NSLog(@"assets‘s count : %zd",assets.count);
          
          }
          }];
-         */
+       
+        NSLog(@"assets's count :%zd",assets.count);
         
-        // 遍历指定的相片
+       
+        /*
         NSInteger fromIndex = 0; // 重指定的index开始遍历
         NSInteger toIndex =5; // 指定最后一张遍历的index
         [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:toIndex] options:NSEnumerationReverse usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
@@ -148,14 +170,36 @@
                 }
             }
         }];
+        */
+        
     }
+    
+    UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = CGSizeMake(100, 100);
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    NXUseAssetsLibCollectionViewController *VC = [[NXUseAssetsLibCollectionViewController alloc] initWithCollectionViewLayout:flowLayout];
+    
+    NSMutableArray *modelArray = [NSMutableArray array];
+    for (int i = 0; i<assets.count; i++) {
+        NXUseAssetsLibModel *model = [[NXUseAssetsLibModel alloc] init];
+        model.asset = assets[i];
+        model.checked = NO;
+        [modelArray addObject:model];
+    }
+    
+    VC.assetArray = modelArray;
+    
+    [self.navigationController pushViewController:VC animated:YES];
+    // 遍历指定的相片
+    
+    
 }
 
 
 - (void)showALAssetsGroupInfo:(ALAssetsGroup *)assetsGroup {
     
     // 是否可编辑,即相册是否可以通过代码添加相片
-    BOOL editable = assetsGroup.editable;
+    //BOOL editable = assetsGroup.editable;
     
     // 添加一个ALAsset到当前相册,前提editable = YES，
     [assetsGroup addAsset:nil];
@@ -169,7 +213,7 @@
     [assetsGroup setAssetsFilter:[ALAssetsFilter allPhotos]];
     
     // 当前过滤器下的ALAsset数量
-    NSInteger number = assetsGroup.numberOfAssets;
+   // NSInteger number = assetsGroup.numberOfAssets;
     
     /**
      NSString *const ALAssetsGroupPropertyName; // Group的名称
@@ -205,18 +249,11 @@
      fullResolutionImage ： 原图，没有编辑的图片
      */
     // 获取原图
-    UIImage * image = [UIImage imageWithCGImage:[representation fullScreenImage] scale:1.0 orientation:UIImageOrientationDownMirrored];
+  //  UIImage * image = [UIImage imageWithCGImage:[representation fullScreenImage] scale:1.0 orientation:UIImageOrientationDownMirrored];
 //    self.imageView.image = image;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 @end
