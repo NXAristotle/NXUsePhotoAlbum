@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-
+@class ALAssetsGroup;
 @interface NXUseAssetsLibCollectionViewController : UICollectionViewController
 
-@property (nonatomic, strong) NSMutableArray *assetArray;   /**< 数据模型 */
+@property (nonatomic, strong) ALAssetsGroup *assetsGroup;   /**< 数据模型 */
 
 @end

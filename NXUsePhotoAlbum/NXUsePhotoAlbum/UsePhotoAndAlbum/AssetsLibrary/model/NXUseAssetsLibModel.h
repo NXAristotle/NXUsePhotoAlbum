@@ -7,14 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AssetsLibrary/AssetsLibrary.h>
+#import <UIKit/UIKit.h>
 
 @interface NXUseAssetsLibModel : NSObject
 
-@property (nonatomic, strong) NSString *originURL;  /**< 原始图片地址 */
-@property (nonatomic, strong) NSString *thumbURL;   /**< 缩略图地址 */
+@property (nonatomic, copy)   NSURL *originImageURL;    /**< 原始图片地址 */
+@property (nonatomic, strong) UIImage *thumbImage;      /**< 缩略图 */
 
-@property (nonatomic, assign) BOOL checked;        /**< 是否被选中 */
-@property (nonatomic, strong) ALAsset *asset;      /**< 资源 */
+@property (nonatomic, assign) BOOL checked;             /**< 是否被选中 */
+@property (nonatomic, assign) BOOL isPhoto;             /**< 是否是图片 */
+
+- (void)originImage:(void(^)(UIImage *image))getOriginImage;  //  获取原图
 
 @end

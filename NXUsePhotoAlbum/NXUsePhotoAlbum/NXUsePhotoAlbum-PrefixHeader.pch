@@ -1,0 +1,19 @@
+//
+//  NXUsePhotoAlbum-PrefixHeader.pch
+//  NXUsePhotoAlbum
+//
+//  Created by linyibin on 2017/3/14.
+//  Copyright © 2017年 NXAristotle. All rights reserved.
+//
+
+#ifndef NXUsePhotoAlbum_PrefixHeader_pch
+#define NXUsePhotoAlbum_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import "UIColor+HexColor.h"
+
+#endif /* NXUsePhotoAlbum_PrefixHeader_pch */
+

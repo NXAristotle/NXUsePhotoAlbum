@@ -38,13 +38,10 @@
     {
         [self.selectBtn setBackgroundImage:[UIImage imageNamed:@"CheckmarkUnselected"] forState:UIControlStateNormal];
     }
-    ALAsset *asset = _model.asset;
-    
-    ALAssetRepresentation *rep = [asset defaultRepresentation];
-    CGImageRef iref = [rep fullScreenImage];
-   
-    UIImage *image = [UIImage imageWithCGImage:iref];
-    self.imageView.image = image;
+
+    if (_model.thumbImage) {
+        self.imageView.image = _model.thumbImage;
+    }
     
 }
 

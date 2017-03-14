@@ -9,11 +9,16 @@
 #import "NXUseAssetsLibCollectionViewController.h"
 #import "NXUseAssetsLibCollectionViewCell.h"
 #import "NXUseAssetsLibModel.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 #define screenWidth    [UIScreen mainScreen].bounds.size.width
 #define screenHeight   [UIScreen mainScreen].bounds.size.height
 
 @interface NXUseAssetsLibCollectionViewController ()<NXUseAssetsLibCollectionViewCellDelegate>
+
+@property (nonatomic, strong) NSMutableArray *assetsModel;    /**< 所有的模型 */
+@property (nonatomic, strong) NSMutableArray *selectedModel;  /**< 选中的模型 */
 
 
 @end
@@ -24,17 +29,52 @@ static NSString * const reuseIdentifier = @"NXUseAssetsLibCollectionViewCell";
 
 #pragma mark - 懒加载
 
-- (NSMutableArray *)assetArray {
-    
-    if (_assetArray == nil) {
-        _assetArray = [NSMutableArray array];
-        
+- (NSMutableArray *)assetsModel {
+    if (_assetsModel == nil) {
+        _assetsModel = [NSMutableArray array];
     }
-    return _assetArray;
+    return _assetsModel;
+}
+
+- (NSMutableArray *)selectedModel {
+    if (_selectedModel == nil) {
+        _selectedModel = [NSMutableArray array];
+    }
+    return _selectedModel;
+}
+
+- (void)setAssetsGroup:(ALAssetsGroup *)assetsGroup {
+    _assetsGroup = assetsGroup;
+    [assetsGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+        if (result == nil) return ;
+        
+        NXUseAssetsLibModel *model = [NXUseAssetsLibModel new];
+        if (![[result valueForProperty:ALAssetPropertyType] isEqualToString:ALAssetTypePhoto]) {  //  不是图片格式（即视频）
+            model.isPhoto = NO;
+            model.thumbImage = [UIImage imageWithCGImage:result.thumbnail];
+            model.originImageURL = result.defaultRepresentation.url;
+            [self.assetsModel addObject:model];
+        }else{
+            model.isPhoto = YES;
+            model.thumbImage = [UIImage imageWithCGImage:result.thumbnail];
+            model.originImageURL = result.defaultRepresentation.url;
+            [self.assetsModel addObject:model];
+        }
+    }];
 }
 
 
 #pragma mark - life cycle
+
+- (instancetype)init {
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    layout.minimumLineSpacing = 8;       //  行之间的间距
+    layout.minimumInteritemSpacing = 8;  //  行内item之间的间距
+    
+    return [super initWithCollectionViewLayout:layout];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,12 +117,12 @@ static NSString * const reuseIdentifier = @"NXUseAssetsLibCollectionViewCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.assetArray.count;
+    return self.assetsModel.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NXUseAssetsLibCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    NXUseAssetsLibModel *model = self.assetArray[indexPath.row];
+    NXUseAssetsLibModel *model = self.assetsModel[indexPath.row];
 
     cell.model = model;
     cell.delegate = self;
@@ -137,7 +177,7 @@ static NSString * const reuseIdentifier = @"NXUseAssetsLibCollectionViewCell";
     
     NSLog(@"indexPath : %@",indexPath);
 
-    NXUseAssetsLibModel *model = self.assetArray[indexPath.row];
+    NXUseAssetsLibModel *model = self.assetsModel[indexPath.row];
     
     model.checked = !model.checked;
 
