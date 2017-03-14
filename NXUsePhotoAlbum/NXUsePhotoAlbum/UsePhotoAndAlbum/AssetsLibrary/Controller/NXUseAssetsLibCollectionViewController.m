@@ -14,6 +14,8 @@
 
 #define screenWidth    [UIScreen mainScreen].bounds.size.width
 #define screenHeight   [UIScreen mainScreen].bounds.size.height
+#define kCount  4  //  每行的个数
+#define kMagrin 4  //  间距
 
 @interface NXUseAssetsLibCollectionViewController ()<NXUseAssetsLibCollectionViewCellDelegate>
 
@@ -70,8 +72,9 @@ static NSString * const reuseIdentifier = @"NXUseAssetsLibCollectionViewCell";
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    layout.minimumLineSpacing = 8;       //  行之间的间距
-    layout.minimumInteritemSpacing = 8;  //  行内item之间的间距
+    layout.minimumLineSpacing = 4;       //  行之间的间距
+    layout.minimumInteritemSpacing = 4;  //  行内item之间的间距
+    layout.sectionInset = UIEdgeInsetsMake(4, 4, 4, 4);
     
     return [super initWithCollectionViewLayout:layout];
 }
@@ -127,8 +130,6 @@ static NSString * const reuseIdentifier = @"NXUseAssetsLibCollectionViewCell";
     cell.model = model;
     cell.delegate = self;
     
-  
-    
     return cell;
 }
 
@@ -164,7 +165,7 @@ static NSString * const reuseIdentifier = @"NXUseAssetsLibCollectionViewCell";
 */
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat width = screenWidth / 5;
+    CGFloat width = (screenWidth - (kCount + 1) * kMagrin) / kCount;
     return CGSizeMake(width, width);
 }
 
