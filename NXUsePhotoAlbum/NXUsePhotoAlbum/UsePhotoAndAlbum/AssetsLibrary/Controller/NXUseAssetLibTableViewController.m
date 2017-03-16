@@ -23,6 +23,7 @@
 - (ALAssetsLibrary *)assetsLibrary {
     if (_assetsLibrary == nil) {
         _assetsLibrary = [[ALAssetsLibrary alloc] init];
+        
     }
     return _assetsLibrary;
 }
@@ -36,9 +37,22 @@
         //  是否需要在此查看授权
         [self checkoutAuthorizationStatus];
         
+        /*
+         开启 Photo Stream 容易导致 exception
+         本质上，这跟上面的 AssetsLibrary 遵循写入优先原则是同一个问题。如果用户开启了共享照片流（Photo Stream），共享照片流会以 mstreamd 的方式“偷偷”执行，当有人把相片写入 Camera Roll 时，它就会自动保存到 Photo Stream Album 中，如果用户刚好在读取，那就跟上面说的一样产生 exception 了。由于共享照片流是用户决定是否要开启的，所以开发者无法改变，但是可以通过下面的接口在需要保护的时刻关闭监听共享照片流产生的频繁通知信息。
+         */
+        [ALAssetsLibrary disableSharedPhotoStreamsSupport];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             
+            //  AssetsLibrary 实例需要强引用,避免被ARC释放
             [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+                
+                NSString *name = [group valueForProperty:ALAssetsGroupPropertyName];
+                NSLog(@"group name : %@",name);
+                if ([group numberOfAssets] < 1) return;
+                
+
                 
                 if (group != nil) {
                     [_groupArray addObject:group];
@@ -51,6 +65,12 @@
                 [alertView show];
             }];
             
+            
+//            [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupPhotoStream usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+//                
+//            } failureBlock:^(NSError *error) {
+//                
+//            }];
         });
         
     }

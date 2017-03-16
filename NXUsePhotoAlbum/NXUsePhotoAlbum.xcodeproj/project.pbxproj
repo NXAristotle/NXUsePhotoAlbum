@@ -20,6 +20,7 @@
 		D26F6E1A1E6D6BF300300E1C /* NXSelectIconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26F6E181E6D6BF300300E1C /* NXSelectIconViewController.xib */; };
 		D26F6E1E1E6E4AC200300E1C /* NXUseAssetsLibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26F6E1C1E6E4AC200300E1C /* NXUseAssetsLibViewController.m */; };
 		D26F6E1F1E6E4AC200300E1C /* NXUseAssetsLibViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26F6E1D1E6E4AC200300E1C /* NXUseAssetsLibViewController.xib */; };
+		D28FBEA01E7AD83C0050A40E /* NXUsePhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FBE9F1E7AD83C0050A40E /* NXUsePhotosViewController.m */; };
 		D2CBBEBE1E7151880029E3CD /* NXUseAssetsLibModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CBBEBD1E7151880029E3CD /* NXUseAssetsLibModel.m */; };
 		D2CBBEC21E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CBBEC01E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.m */; };
 		D2CBBEC31E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2CBBEC11E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.xib */; };
@@ -72,6 +73,9 @@
 		D26F6E1B1E6E4AC200300E1C /* NXUseAssetsLibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXUseAssetsLibViewController.h; sourceTree = "<group>"; };
 		D26F6E1C1E6E4AC200300E1C /* NXUseAssetsLibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXUseAssetsLibViewController.m; sourceTree = "<group>"; };
 		D26F6E1D1E6E4AC200300E1C /* NXUseAssetsLibViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NXUseAssetsLibViewController.xib; sourceTree = "<group>"; };
+		D28FBE9E1E7AD83C0050A40E /* NXUsePhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXUsePhotosViewController.h; sourceTree = "<group>"; };
+		D28FBE9F1E7AD83C0050A40E /* NXUsePhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXUsePhotosViewController.m; sourceTree = "<group>"; };
+		D2A10A401E790F85005D1E8A /* NXUsePhotoAlbum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NXUsePhotoAlbum.entitlements; sourceTree = "<group>"; };
 		D2CBBEBC1E7151880029E3CD /* NXUseAssetsLibModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXUseAssetsLibModel.h; sourceTree = "<group>"; };
 		D2CBBEBD1E7151880029E3CD /* NXUseAssetsLibModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXUseAssetsLibModel.m; sourceTree = "<group>"; };
 		D2CBBEBF1E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXUseAssetsLibCollectionViewCell.h; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 		D26F6DC01E6D61CF00300E1C /* NXUsePhotoAlbum */ = {
 			isa = PBXGroup;
 			children = (
+				D2A10A401E790F85005D1E8A /* NXUsePhotoAlbum.entitlements */,
 				D2DED6841E77F49A00779AEA /* Category */,
 				D26F6E091E6D6BD100300E1C /* UsePhotoAndAlbum */,
 				D26F6DFD1E6D63DA00300E1C /* home */,
@@ -315,6 +320,8 @@
 		D26F6E131E6D6BD100300E1C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D28FBE9E1E7AD83C0050A40E /* NXUsePhotosViewController.h */,
+				D28FBE9F1E7AD83C0050A40E /* NXUsePhotosViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -411,6 +418,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = D25ER75697;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					D26F6DD61E6D61CF00300E1C = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -479,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26F6E191E6D6BF300300E1C /* NXSelectIconViewController.m in Sources */,
+				D28FBEA01E7AD83C0050A40E /* NXUsePhotosViewController.m in Sources */,
 				D26F6E051E6D63DA00300E1C /* ViewController.m in Sources */,
 				D2DED6871E77F49A00779AEA /* UIColor+HexColor.m in Sources */,
 				D2DED67B1E77CF3100779AEA /* NXUseAssetLibTableViewController.m in Sources */,
