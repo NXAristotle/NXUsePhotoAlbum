@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D200707C1E725024000C50EA /* NXUseAssetsLibCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D200707B1E725024000C50EA /* NXUseAssetsLibCollectionViewController.m */; };
+		D21E98711E7FD47300050513 /* NXPhotoKitTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D21E98701E7FD47300050513 /* NXPhotoKitTools.m */; };
 		D26F6DC31E6D61CF00300E1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D26F6DC21E6D61CF00300E1C /* main.m */; };
 		D26F6DC61E6D61CF00300E1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D26F6DC51E6D61CF00300E1C /* AppDelegate.m */; };
 		D26F6DCE1E6D61CF00300E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26F6DCD1E6D61CF00300E1C /* Assets.xcassets */; };
@@ -50,6 +51,8 @@
 /* Begin PBXFileReference section */
 		D200707A1E725024000C50EA /* NXUseAssetsLibCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXUseAssetsLibCollectionViewController.h; sourceTree = "<group>"; };
 		D200707B1E725024000C50EA /* NXUseAssetsLibCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXUseAssetsLibCollectionViewController.m; sourceTree = "<group>"; };
+		D21E986F1E7FD47300050513 /* NXPhotoKitTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NXPhotoKitTools.h; sourceTree = "<group>"; };
+		D21E98701E7FD47300050513 /* NXPhotoKitTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NXPhotoKitTools.m; sourceTree = "<group>"; };
 		D26F6DBE1E6D61CF00300E1C /* NXUsePhotoAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NXUsePhotoAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26F6DC21E6D61CF00300E1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D26F6DC41E6D61CF00300E1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 				D26F6E131E6D6BD100300E1C /* Controller */,
 				D26F6E141E6D6BD100300E1C /* model */,
 				D26F6E151E6D6BD100300E1C /* View */,
+				D21E986F1E7FD47300050513 /* NXPhotoKitTools.h */,
+				D21E98701E7FD47300050513 /* NXPhotoKitTools.m */,
 			);
 			path = PhotoKit;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 				D2DED67F1E77D76900779AEA /* NXAssetGroupTableViewCell.m in Sources */,
 				D2CBBEBE1E7151880029E3CD /* NXUseAssetsLibModel.m in Sources */,
 				D26F6DC61E6D61CF00300E1C /* AppDelegate.m in Sources */,
+				D21E98711E7FD47300050513 /* NXPhotoKitTools.m in Sources */,
 				D200707C1E725024000C50EA /* NXUseAssetsLibCollectionViewController.m in Sources */,
 				D2CBBEC21E7151F80029E3CD /* NXUseAssetsLibCollectionViewCell.m in Sources */,
 				D26F6DC31E6D61CF00300E1C /* main.m in Sources */,
