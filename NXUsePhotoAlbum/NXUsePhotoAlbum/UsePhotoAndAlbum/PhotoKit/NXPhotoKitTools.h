@@ -29,12 +29,17 @@
 /**
  * @brief 获取智能相册（系统）列表
  */
-- (NSArray<NXPhotoAblumModel *> *)getAllSmartAblumList;
+- (NSArray<NXPhotoAblumModel *> *)getAllSmartAlbumList;
 
 /**
  * @brief 获取用户所有相册列表
  */
-- (NSArray<NXPhotoAblumModel *> *)getAllUserAblumList;
+- (NSArray<NXPhotoAblumModel *> *)getAllUserAlbumList;
+
+/**
+ * @brief 获取所有相册列表(包括智能相册和用户相册)
+ */
+- (NSArray<NXPhotoAblumModel *> *)getAllAlbumList;
 
 
 /**

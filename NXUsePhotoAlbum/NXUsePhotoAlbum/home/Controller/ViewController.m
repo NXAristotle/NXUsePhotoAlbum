@@ -10,6 +10,7 @@
 #import "NXHomePageModel.h"
 #import "NXSelectIconViewController.h"
 #import "NXUseAssetsLibViewController.h"
+#import "NXUsePhotosViewController.h"
 
 
 #define screenWidth  [UIScreen mainScreen].bounds.size.width
@@ -41,6 +42,11 @@
         
         [_dataSource addObject:model1];
         
+        NXHomePageModel *modle2 = [NXHomePageModel new];
+        modle2.describ = @"测试PhotoKit工具类";
+        modle2.nextVC = @"NXUsePhotosViewController";
+        
+        [_dataSource addObject:modle2];
     }
     return _dataSource;
 }
